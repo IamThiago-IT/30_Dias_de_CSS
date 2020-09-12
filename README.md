@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="CSS" title="#CSS" src="https://github.com/IamThiago-IT/30_Dias_de_CSS/blob/master/astronaut.svg" width="200px" />
+    <img alt="CSS" title="#CSS" src="https://github.com/IamThiago-IT/30_Dias_de_CSS/blob/master/astronaut.svg" width="450px" />
 </h1>
 
 # 🚀 30diasDeCSS 🚀
