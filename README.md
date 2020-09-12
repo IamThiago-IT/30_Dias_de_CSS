@@ -19,7 +19,7 @@ Improve my CSS3 skills by carrying out projects
 
 # Projetos
 
-- DAY 1
+- DAY 1 - Dia 1 - Botão com hover e Focus
 - DAY 2
 - DAY 3
 - DAY 4
