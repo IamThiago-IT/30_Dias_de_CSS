@@ -6,6 +6,11 @@ Fala Devs, beleza? 🤘
 # Objetivo
 
 # Regras gerais
+- Realizar um projeto por dia
+- Compartilhe seu progresso nas mídias sociais (Twitter, Facebook, Linkedin etc.) usando a hashtag #30diasDeCSS
+- O projeto deve ser concluído até 23:59
+
+# Projetos
 
 - DAY 1
 - DAY 2
