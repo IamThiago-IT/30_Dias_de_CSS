@@ -18,8 +18,7 @@ Improve my CSS3 skills by carrying out projects
 - O projeto deve ser concluído até 23:59
 
 # Projetos
-
-- DAY 1 - Dia 1 - Botão com hover e Focus
+- [DAY 1 - Botão com hover e Focus](https://www.google.com)
 - DAY 2
 - DAY 3
 - DAY 4
