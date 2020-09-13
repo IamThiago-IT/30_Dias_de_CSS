@@ -19,7 +19,7 @@ Improve my CSS3 skills by carrying out projects
 
 # Projetos
 - [DAY 1 - Botão com hover e Focus](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia%201%20-%20Bot%C3%A3o%20com%20hover%20e%20Focus)
-- DAY 2
+- [DAY 2 - Slide Down Toggle]
 - DAY 3
 - DAY 4
 - DAY 5
