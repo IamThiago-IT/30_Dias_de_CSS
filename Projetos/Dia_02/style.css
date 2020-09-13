@@ -5,6 +5,8 @@
     word-spacing: -2px;
 }
 
+
+/* Conficurações do H1 */
 h1 {
     font-size: 40px;
     font-weight: bold;
@@ -12,11 +14,18 @@ h1 {
     -webkit-font-smoothing: antialiased;
 }
 
+/* Conficurações do H2 */
 h2 {
     font-weight: normal;
     font-size: 20px;
     color: #888;
     padding: 5px 0;
+}
+
+
+/* cor de fundo da página */
+body {
+    background: #ECF0F1;
 }
 
 .message {
@@ -80,10 +89,15 @@ h2 {
     margin-top: 250px;
 }
 
+/* alterações após clicar no batão */
+
+
+/* alterar a cor do batão */
 #alter:checked + label {
-    background: #dd6149;
+    background: #551210;
 }
 
+/* alterar a palavra do batão */
 #alter:checked + label:after {
     content:"Fechar"
 }
