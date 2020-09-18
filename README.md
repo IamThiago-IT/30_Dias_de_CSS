@@ -24,7 +24,7 @@ Improve my CSS3 skills by carrying out projects
 - [DAY 4 - Navegação de guia](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_04)
 - [DAY 5 - Responsive Footer](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_05)
 - [DAY 6 - Flip Cards](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_06)
-- DAY 7
+- [DAY 7 - Modal](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_07)
 - DAY 8
 - DAY 9
 - DAY 10
