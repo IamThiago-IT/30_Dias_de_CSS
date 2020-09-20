@@ -147,7 +147,7 @@ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:
 .tic-tac-toe input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~
 input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~
 input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:checked ~ .end > h3:before {
-  content: "It is a tie!";
+  content: "É um empate!";
 }
 .tic-tac-toe .player-1.first-column:checked ~ .player-1.first-column:checked ~ .player-1.first-column:checked ~ .end,
 .tic-tac-toe .player-1.second-column:checked ~ .player-1.second-column:checked ~ .player-1.second-column:checked ~ .end,
@@ -167,7 +167,7 @@ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:
 .tic-tac-toe .player-1.third-row:checked ~ .player-1.third-row:checked ~ .player-1.third-row:checked ~ .end h3:before,
 .tic-tac-toe .player-1.first-diagonal:checked ~ .player-1.first-diagonal:checked ~ .player-1.first-diagonal:checked ~ .end h3:before,
 .tic-tac-toe .player-1.second-diagonal:checked ~ .player-1.second-diagonal:checked ~ .player-1.second-diagonal:checked ~ .end h3:before {
-  content: "Player 1 wins!" !important;
+  content: "O jogador 1 venceu!" !important;
 }
 .tic-tac-toe .player-2.first-column:checked ~ .player-2.first-column:checked ~ .player-2.first-column:checked ~ .end,
 .tic-tac-toe .player-2.second-column:checked ~ .player-2.second-column:checked ~ .player-2.second-column:checked ~ .end,
@@ -187,7 +187,7 @@ input[type="radio"]:checked ~ input[type="radio"]:checked ~ input[type="radio"]:
 .tic-tac-toe .player-2.third-row:checked ~ .player-2.third-row:checked ~ .player-2.third-row:checked ~ .end h3:before,
 .tic-tac-toe .player-2.first-diagonal:checked ~ .player-2.first-diagonal:checked ~ .player-2.first-diagonal:checked ~ .end h3:before,
 .tic-tac-toe .player-2.second-diagonal:checked ~ .player-2.second-diagonal:checked ~ .player-2.second-diagonal:checked ~ .end h3:before {
-  content: "Player 2 wins!" !important;
+  content: "O jogador 2 venceu!" !important;
 }
 .tic-tac-toe label {
   background-color: #035e7f;
