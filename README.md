@@ -26,8 +26,8 @@ Improve my CSS3 skills by carrying out projects
 - [DAY 6 - Flip Cards](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_06)
 - [DAY 7 - Modal](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_07)
 - [DAY 8 - Tic-tac-toe](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_08)
-- DAY 9
-- DAY 10
+- [DAY 9 - Máquina de escrever](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_09)
+- [DAY 10 - TODO-List](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_10)
 - DAY 11
 - DAY 12
 - DAY 13
