@@ -28,10 +28,10 @@ input[type="radio"] {
   display: none;
 }
 input[type="radio"]:checked + label {
-  background-color: #8e44ad;
+  background-color: #02465e;
 }
 input[type="radio"]:checked + label:after {
-  border-left-color: #8e44ad;
+  border-left-color: #02465e;
 }
 input[type="radio"]:checked ~ .img-wrapper {
   margin-left: 0;
@@ -42,7 +42,7 @@ label {
   display: table;
   height: 80px;
   padding: 5px;
-  background: #9b59b6;
+  background: #035e7f;
   color: #fff;
   cursor: pointer;
   z-index: 10;
@@ -58,7 +58,7 @@ label:after {
   top: 0;
   width: 0;
   height: 0;
-  border: 40px solid #9b59b6;
+  border: 40px solid #035e7f;
   border-top-color: transparent;
   border-bottom-color: transparent;
   border-right-color: transparent;
