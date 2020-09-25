@@ -29,7 +29,7 @@ Improve my CSS3 skills by carrying out projects
 - [DAY 9 -  Máquina de escrever](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_09)
 - [DAY 10 - TODO-List](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_10)
 - [DAY 11 - Glitch Effect](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_11)
-- DAY 12 -  Slide
+- [DAY 12 -  Slide]
 - DAY 13 -  Divs animations
 - DAY 14
 - DAY 15
