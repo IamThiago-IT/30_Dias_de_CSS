@@ -1,6 +1,7 @@
 body {
     padding: 250px;
-    left: 150px;
+    position: absolute;
+    left: 250px;
   }
   
   .tooltip {
