@@ -1,0 +1,122 @@
+:root {
+  /* Light theme */
+  --c-light-text: #333;
+  --c-light-background: #fff;
+  --c-light-focus: deepskyblue;
+  --c-light-interactive: mediumvioletred;
+
+  /* Dark theme */
+  --c-dark-text: #fff;
+  --c-dark-background: #333;
+  --c-dark-focus: deeppink;
+  --c-dark-interactive: palegreen;
+}
+
+.theme-container {
+  /* Make the light theme the default */
+  --c-text: var(--c-light-text);
+  --c-background: var(--c-light-background);
+  --c-focus: var(--c-light-focus);
+  --c-interactive: var(--c-light-interactive);
+
+  padding: 1.5rem;
+  color: var(--c-text);
+  background-color: var(--c-background);
+}
+
+.dark-mode-checkbox:checked ~ .theme-container {
+  /* Override the default theme */
+  --c-text: var(--c-dark-text);
+  --c-background: var(--c-dark-background);
+  --c-focus: var(--c-dark-focus);
+  --c-interactive: var(--c-dark-interactive);
+}
+
+.dark-mode-label {
+  margin-bottom: 1em;
+}
+
+:focus,
+.dark-mode-checkbox:focus ~ .theme-container .dark-mode-label {
+  outline: 2px solid var(--c-focus);
+}
+
+
+/*
+* Replace original checkbox
+*/
+
+.dark-mode-label::before {
+  content: "\2610";
+}
+
+.dark-mode-checkbox:checked ~ .theme-container .dark-mode-label::before {
+  content: "\2611";
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap; /* 1. */
+}
+
+
+
+html,
+body {
+  height: 100%; /* 1. */
+}
+
+body {
+  display: flex; /* 1. */
+  flex-direction: column; /* 1. */
+}
+
+.grow {
+  flex-grow: 1; /* 1. */
+}
+
+
+
+/*
+* Basic styles
+*/
+body {
+  margin: 0;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.25em;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--c-interactive);
+}
+
+h1 {
+  margin-top: 0;
+}
+
+code {
+  font-family: 'Fira Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+.wrapper {
+  max-width: 600px;
+}
+
+.input[type="checkbox"] 
+{
+  positon:relative;
+  width: 80px;
+  height: 40px;
+  -webkit-appearence: none;
+  background: #c6c6c6;
+  outline: none;
+  border-radius: 20px;
+}
