@@ -132,7 +132,14 @@ body{
   .btn-google {
     color: #555555;
   }
+  .btn-github {
+    color: #000000;
+  }
   
+  .btn-linkedin {
+    color: #0e76a8;
+  }
+
   .btn-google img {
     width: 19px;
     margin-right: 10px;
