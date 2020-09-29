@@ -1,0 +1,213 @@
+body{
+    padding: 100px;
+    position:absolute;
+    left: 25%;
+    background: black;
+  }
+  .con-input{
+    background: rgb(242, 243, 247);
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    padding: 5px;
+    border-radius: 12px;
+    position: relative;
+    width: 240px;
+  }
+  .con-input input {
+    border: 0px;
+    background: transparent;
+    outline: none;
+    font-size:-9rem;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 8px;
+    width: 200px;
+    transition: all .25s ease;
+    
+  }
+  .con-input  input:facus{
+    padding-left: 5px;
+    padding-right: 0px;
+  }
+  .con-input input:focus ~ .bg{
+    border: 2px solid #000;
+  }
+  .con-input input:focus ~ i{
+    transform: translate(0, -8px);
+    box-shodow: 0px 8px 20px 0px
+      rgb(0,0,0, .15);
+  }
+  .con-input i.icon{
+    order: -1;
+    background: #fff;
+    border-radius: 12px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 31px;
+    height: 31px;
+    z-index:20;
+    transition:all .25 ease;
+  }
+  .bg{
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+    pointer-events: none;
+    border-radius: inherit;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    transition: all .25 ease;
+  }
+  .div{
+    background: #fff;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    
+      padding: 57px 65px;
+      padding-bottom: 65px;
+  }
+  .btn{
+    padding: 0.6rem;
+    width: 5rem;
+    border-radius: 0.3rem;
+    background: #fff;
+    border: 1px solid #ccc;
+    
+    position: absolute;
+    right: 45%;
+  }
+  .btn:hover{
+    border-color: black;
+  }
+  h1 {
+    text-align: center;
+  }
+  .btn-face,
+  .btn-github,
+  .btn-linkedin,
+  .btn-google {
+    font-family: Raleway-Bold;
+    font-size: 16px;
+    line-height: 1.2;
+  
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc((100% - 10px) / 2);
+    height: 40px;
+    border-radius: 3px;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  
+  
+  .btn-face {
+    color: #3b5998;
+  }
+  
+  .btn-face i {
+    font-size: 20px;
+    margin-right: 10px;
+    padding-bottom: 1px;
+  }
+  
+  .btn-google {
+    color: #555555;
+  }
+  
+  .btn-google img {
+    width: 19px;
+    margin-right: 10px;
+    padding-bottom: 1px;
+  }
+  
+  .btn-github img {
+    width: 19px;
+    margin-right: 10px;
+    padding-bottom: 1px;
+  }
+  
+  .btn-linkedin img {
+    width: 19px;
+    margin-right: 10px;
+    padding-bottom: 1px;
+  }
+  
+  
+  .btn-face:hover,
+  .btn-github:hover,
+  .btn-linkedin:hover,
+  .btn-google:hover {
+    border-color: #d33f8d;
+  }
+  
+  .m-b-10 {
+      margin-bottom: 10px;
+  }
+  a {
+      font-family: Poppins-Regular;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #666666;
+      margin: 0px;
+      transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+  }
+  [role=button], a, area, button, input, label, select, summary, textarea {
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  }
+  a {
+      color: #007bff;
+      text-decoration: none;
+      background-color: transparent;
+      -webkit-text-decoration-skip: objects;
+  }
+  * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+  }
+  *, ::after, ::before {
+      box-sizing: inherit;
+  }
+  user agent stylesheet
+  a:-webkit-any-link {
+      color: -webkit-link;
+      cursor: pointer;
+      text-decoration: underline;
+  }
+  
+  .btn-linkedin{
+    position: absolute;
+    top: 53.4%;
+    left: 290px; 
+    width:120px;
+  }
+  
+  .btn-github{
+    position: absolute;
+    top: 62.1%;
+    left: 290px; 
+    width:120px
+  }
