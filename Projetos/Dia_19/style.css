@@ -1,1 +1,45 @@
+* {
+  background: #ccc;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+
+.h1 {
+  position: absolute;
+  left: 45%;
+}
+
+.option {
+  width: 60px;
+  height: 60px;
+  background: #ccc;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+
+.fa {
+  width: 60px;
+  height: 60px;
+  box-sizing: border-box;
+  line-height: 60px;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 60px;
+}
+
+.option span {
+  margin: 0 5px;
+  font-size: 0.9rem;
+  font-family: "Roboto" sans-serif;
+}
+
+.option:hover {
+  width: 130px;
+}
 
