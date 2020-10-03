@@ -1,0 +1,119 @@
+body {
+    font-family: 'Roboto', cursive;
+  }
+  
+  h1 {
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-size: 40px;
+    margin-top: 80px;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 100;
+    margin-top: 20px;
+  }
+  
+  h3 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30px;
+  }
+  
+  section {
+    width: 500px;
+    margin: 50px auto;
+  }
+  section p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  table {
+    width: 100%;
+    margin: auto;
+  }
+  table tr {
+    width: 100%;
+  }
+  table th, table td {
+    box-sizing: border-box;
+    padding: 15px;
+  }
+  table thead th {
+    background: #000;
+    color: #fff;
+    text-align: left;
+  }
+  table tbody {
+    text-align: left;
+  }
+  table tbody th {
+    background: #eee;
+  }
+  
+  .sp {
+    width: 420px;
+    margin-top: 40px;
+  }
+  .sp tr {
+    display: block;
+    width: 100%;
+  }
+  .sp thead {
+    display: none;
+  }
+  .sp tbody {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+  .sp tbody th {
+    list-style: none;
+  }
+  .sp tbody td {
+    margin-left: 40px;
+  }
+  .sp tbody th, .sp tbody td {
+    width: 100%;
+    display: list-item;
+  }
+  
+  @media only screen and (max-width: 420px) {
+    body {
+      width: 100%;
+    }
+  
+    section {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0px 20px;
+    }
+  
+    table tr {
+      display: block;
+      width: 100%;
+    }
+    table thead {
+      display: none;
+    }
+    table tbody {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+    }
+    table tbody th {
+      list-style: none;
+    }
+    table tbody td {
+      margin-left: 40px;
+    }
+    table tbody th, table tbody td {
+      width: 100%;
+      display: list-item;
+    }
+  }
