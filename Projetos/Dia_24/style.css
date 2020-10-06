@@ -1,0 +1,237 @@
+:root {
+  --c-yellow-tint: #088cbd;
+  --c-yellow: rgb(8, 140, 189);
+  --c-yellow-shade: rgb(255, 149, 100);
+  --c-yellow-shadow: rgba(255, 149, 100, .5);
+
+  --c-cyan-tint: #00cfc5;
+  --c-cyan: #67C8E4;
+  --c-cyan-shade: #0383be;
+
+  --c-dark-tint: #434C5E;
+  --c-dark: #3B4252;
+  --c-dark-shade: #2E3440;
+
+  --c-light-tint: #f6f6f8;
+  --c-light: #ECEFF4;
+  --c-light-shade: #D8DEE9;
+
+  --c-darker:   rgba(15, 17, 21, .08);
+  --c-darker-1: rgba(15, 17, 21, .2);
+  --c-darker-2: rgba(15, 17, 21, .4);
+  --c-darker-3: rgba(15, 17, 21, .6);
+
+  --c-lighter:   rgba(184, 194, 215, .2);
+  --c-lighter-1: rgba(184, 194, 215, .3);
+  --c-lighter-2: rgba(184, 194, 215, .4);
+  --c-lighter-3: rgba(184, 194, 215, .6);
+
+  --ff-ui: Rajdhani, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+input:focus {
+  outline: unset;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fullstacks:not(.light) {
+  --background-l0: var(--c-dark);
+  --background-l1: var(--c-dark-tint);
+  --foreground: var(--c-light);
+  --bs-card: 0 2px 4px var(--c-darker), 0 5px 10px var(--c-darker-1);
+}
+
+.fullstacks.light {
+  --background-l0: var(--c-light-shade);
+  --background-l1: var(--c-light);
+  --foreground: var(--c-dark);
+  --bs-card: 0 2px 4px var(--c-darker), 0 5px 10px var(--c-darker-1);
+}
+
+.fullstacks {
+  font-family: var(--ff-ui);
+  background-color: #ccc;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  padding: 100px 40px 40px;
+  color: var(--foreground);
+  position: relative;
+  width: 400px;
+  min-height: 400px;
+  box-shadow: var(--bs-card);
+  background-color: var(--background-l1);
+  transition: min-width 300ms;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  height: 80px;
+}
+
+.logo::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--foreground);
+  opacity: .2;
+  height: 1px;
+}
+
+.logo h1 {
+  font-weight: 500;
+}
+
+.logo h2 {
+  opacity: .7;
+  font-weight: 400;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+.progress-container {
+  width: 140px;
+  height: 180px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progressbar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.progressbar__track {
+  fill: transparent;
+  stroke: var(--c-darker-1);
+  stroke-width: 13px;
+}
+
+.progressbar__thumb {
+  fill: transparent;
+  stroke-width: 3px;
+  stroke-dasharray: 0 calc(30 * 2 * 3.14159);
+  stroke-linecap: round;
+  animation-name: progress;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.3, 1, .3, 1);
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.progressbar__thumb--track-1 {
+  stroke: var(--c-lighter-1);
+  animation-duration: 1.8s;
+}
+
+.progressbar__thumb--track-2 {
+  stroke: var(--c-lighter);
+  animation-duration: 1.6s;
+  animation-delay: .2s;
+}
+
+.progressbar__thumb--track-3 {
+  stroke: var(--c-yellow);
+  animation-duration: 1.2s;
+  animation-delay: .4s;
+}
+
+.progress-content {
+  text-align: center;
+}
+
+.progress__value {
+  color: var(--c-yellow);
+  font-size: 1.5em;
+  position: relative;
+  display: inline-block;
+  transform: scale(0);
+  animation: pulse 400ms 1.6s forwards;
+}
+
+.progress__value::before {
+  content: '%';
+  font-size: .5em;
+  position: absolute;
+  top: 4px;
+  left: -12px;
+}
+
+.progress__text {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  max-height: 0;
+  overflow-y: hidden;
+  animation: flyin 500ms 1.9s forwards;
+}
+
+@keyframes progress {
+  to {
+    stroke-dasharray: 170;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+  }
+  
+  60% {
+    transform: scale(1.4);
+  }
+  
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flyin {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  
+  to {
+    max-height: 20px;
+    opacity: .5;
+  }
+}
