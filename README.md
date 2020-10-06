@@ -41,7 +41,7 @@ Improve my CSS3 skills by carrying out projects
 - DAY 21 -
 - DAY 22 -
 - [DAY 23 - Botões de Redes social com Tooltip](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_23)
-- DAY 24
+- DAY 24- Progress
 - DAY 25
 - DAY 26
 - DAY 27
