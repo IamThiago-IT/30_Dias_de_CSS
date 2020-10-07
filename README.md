@@ -38,11 +38,11 @@ Improve my CSS3 skills by carrying out projects
 - [DAY 18 - Box Flip Animation](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_18)
 - [DAY 19 - Barra de Navegação Animada](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_19)
 - [DAY 20 - Imagens Polaroid](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_20)
-- DAY 21 -
-- DAY 22 -
+- DAY 21 - Tabelas responsivas
+- DAY 22 - Video Carousel
 - [DAY 23 - Botões de Redes social com Tooltip](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_23)
-- DAY 24- Progress
-- DAY 25
+- DAY 24 - Progress
+- DAY 25 - Progress etapas
 - DAY 26
 - DAY 27
 - DAY 28
