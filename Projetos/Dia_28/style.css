@@ -1,0 +1,1647 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic);
+.coffee-title {
+  height: 3rem;
+  overflow: visible;
+  z-index: 20;
+}
+
+.coffee-info {
+  outline: none;
+  padding: 1rem;
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: -webkit-transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.coffee-info, .coffee-info + .info-overlay {
+  display: block;
+  height: calc(200px + 2rem);
+  width: 100%;
+  position: absolute;
+  top: 35%;
+}
+.coffee-info + .info-overlay {
+  pointer-events: none;
+}
+.coffee-info:focus {
+  -webkit-transform: translateX(158.4px);
+          transform: translateX(158.4px);
+}
+.coffee-info:focus .coffee-recipe {
+  opacity: 1;
+  -webkit-transform: translateX(-158.4px);
+          transform: translateX(-158.4px);
+}
+.coffee-info:focus + .info-overlay {
+  pointer-events: auto;
+}
+
+.coffee-cup {
+  width: 200px;
+  height: 200px;
+  border-style: solid;
+  border-color: white;
+  border-width: 0.5rem;
+  margin: auto;
+  -webkit-animation: cup-inactive 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: cup-inactive 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+  -webkit-transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  opacity: 0;
+  border-bottom-left-radius: 75px;
+  border-bottom-right-radius: 75px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.coffee-cup:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 66.66667px;
+  width: 50px;
+  border-width: 0.6rem;
+  border-color: white;
+  border-style: solid;
+  left: 100%;
+  border-radius: 0 50% 50% 0;
+  top: 40px;
+  -webkit-transform: skewY(-15deg);
+          transform: skewY(-15deg);
+  border-left-width: 0;
+}
+
+.coffee-ingredients {
+  position: absolute;
+  left: 0;
+  height: auto;
+  width: calc(100% - 1rem);
+  margin: 0.5rem;
+  bottom: 0;
+  overflow: hidden;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  opacity: 0;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  border-bottom-left-radius: calc(200px * .375 - 1rem);
+  border-bottom-right-radius: calc(200px * .375 - 1rem);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.coffee-recipe {
+  position: absolute;
+  left: 0;
+  bottom: 2rem;
+  height: auto;
+  width: 100%;
+  color: white;
+  padding: 0 calc(158.4px - 1rem) 0 1rem;
+  opacity: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: translateX(158.4px);
+          transform: translateX(158.4px);
+}
+
+[class^="recipe-"] {
+  white-space: nowrap;
+  overflow-x: hidden;
+  opacity: 0;
+  top: 0.5rem;
+  -webkit-transition-property: height;
+  transition-property: height;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+[class^="recipe-"]:not(.recipe-crema) {
+  min-height: 2.5rem;
+}
+[class^="recipe-"].recipe-crema {
+  overflow: hidden;
+}
+[class^="recipe-"]:before {
+  position: absolute;
+  top: 1rem;
+  font-weight: 700;
+  font-size: small;
+  font-variant: small-caps;
+  line-height: 1.4;
+}
+[class^="recipe-"]:after {
+  content: '';
+  display: inline-block;
+  border-bottom: 1px dotted white;
+  width: 100%;
+  -webkit-transform: scaleX(2);
+          transform: scaleX(2);
+  -webkit-transform-origin: left bottom;
+          transform-origin: left bottom;
+  margin: 0 0.5rem;
+}
+
+[class^="ingredient-"] {
+  width: 100%;
+  margin-bottom: 1px;
+  height: 0;
+  -webkit-transition-property: height;
+  transition-property: height;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+[class^="ingredient-"]:after {
+  margin-top: 1rem;
+}
+
+.ingredient-foam {
+  background-color: #fdfdfd;
+  color: #fdfdfd;
+}
+
+.ingredient-steam {
+  background-color: #f0eada;
+  color: #f0eada;
+}
+
+.ingredient-half {
+  background-color: #f0eada;
+  color: #f0eada;
+}
+
+.ingredient-water {
+  background-color: #c7dfdf;
+  color: #c7dfdf;
+}
+
+.ingredient-espresso {
+  background-color: #4d211d;
+  color: #4d211d;
+}
+
+.ingredient-chocolate {
+  background-color: #71471c;
+  color: #71471c;
+}
+
+.ingredient-crema {
+  background-color: #ac6d44;
+  color: #ac6d44;
+}
+
+.ingredient-condensed {
+  background-color: #f0eada;
+  color: #f0eada;
+}
+
+[class^="ingredient-"]:nth-child(1n) {
+  z-index: 80;
+}
+
+[class^="ingredient-"]:nth-child(2n) {
+  z-index: 70;
+}
+
+[class^="ingredient-"]:nth-child(3n) {
+  z-index: 60;
+}
+
+[class^="ingredient-"]:nth-child(4n) {
+  z-index: 50;
+}
+
+[class^="ingredient-"]:nth-child(5n) {
+  z-index: 40;
+}
+
+[class^="ingredient-"]:nth-child(6n) {
+  z-index: 30;
+}
+
+[class^="ingredient-"]:nth-child(7n) {
+  z-index: 20;
+}
+
+[class^="ingredient-"]:nth-child(8n) {
+  z-index: 10;
+}
+
+.coffee-labels {
+  -webkit-animation: coffee-labels-active 0.5s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-labels-active 0.5s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+.coffee-labels label {
+  display: block;
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0 1rem;
+  -webkit-animation: coffee-type-active 1s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-type-active 1s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+  opacity: 1;
+  pointer-events: auto;
+}
+.coffee-labels label p {
+  font-family: 'Noto Serif', sans-serif;
+  font-style: italic;
+  -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: normal;
+  color: white;
+  opacity: 0;
+  text-transform: none;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+}
+.coffee-labels label span {
+  display: inline-block;
+  font-size: 2rem;
+  color: white;
+}
+.coffee-labels label span:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 100%;
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 1px;
+  background: #e34a36;
+  opacity: 0;
+}
+
+[name="coffeeType"]:checked ~ .coffee-info [class^="ingredient-"], [name="coffeeType"]:checked ~ .coffee-info [class^="recipe-"] {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  display: none;
+}
+[name="coffeeType"]:checked ~ .coffee-info .coffee-cup {
+  opacity: 1;
+}
+[name="coffeeType"]:checked ~ .coffee-title label {
+  -webkit-animation: coffee-type-inactive 1s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-type-inactive 1s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+  opacity: 0;
+  pointer-events: none;
+}
+[name="coffeeType"]:checked ~ .coffee-controls {
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+}
+[name="coffeeType"]:checked ~ .coffee-controls [type="reset"] {
+  opacity: 1;
+}
+
+#doppio:checked ~ .coffee-title label[for="doppio"] {
+  -webkit-animation: none;
+          animation: none;
+  opacity: 1;
+}
+#doppio:checked ~ .coffee-title label[for="doppio"] p {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+#doppio:checked ~ .coffee-title label[for="doppio"] span:after {
+  -webkit-animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+#doppio:checked ~ .coffee-info .coffee-cup {
+  -webkit-animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#doppio:checked ~ .coffee-info .coffee-ingredients {
+  -webkit-animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  opacity: 1;
+}
+#doppio:checked ~ .coffee-info .ingredient-espresso, #doppio:checked ~ .coffee-info .recipe-espresso {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#doppio:checked ~ .coffee-info .recipe-espresso {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#doppio:checked ~ .coffee-info .recipe-espresso:before {
+  content: "60ml";
+}
+#doppio:checked ~ .coffee-info .ingredient-crema, #doppio:checked ~ .coffee-info .recipe-crema {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.3);
+}
+#doppio:checked ~ .coffee-info .recipe-crema {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#doppio:checked ~ .coffee-info .recipe-crema:before {
+  content: "9ml";
+}
+
+#macchiatto:checked ~ .coffee-title label[for="macchiatto"] {
+  -webkit-animation: none;
+          animation: none;
+  opacity: 1;
+}
+#macchiatto:checked ~ .coffee-title label[for="macchiatto"] p {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+#macchiatto:checked ~ .coffee-title label[for="macchiatto"] span:after {
+  -webkit-animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+#macchiatto:checked ~ .coffee-info .coffee-cup {
+  -webkit-animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#macchiatto:checked ~ .coffee-info .coffee-ingredients {
+  -webkit-animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  opacity: 1;
+}
+#macchiatto:checked ~ .coffee-info .ingredient-espresso, #macchiatto:checked ~ .coffee-info .recipe-espresso {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#macchiatto:checked ~ .coffee-info .recipe-espresso {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#macchiatto:checked ~ .coffee-info .recipe-espresso:before {
+  content: "60ml";
+}
+#macchiatto:checked ~ .coffee-info .ingredient-crema, #macchiatto:checked ~ .coffee-info .recipe-crema {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.3);
+}
+#macchiatto:checked ~ .coffee-info .recipe-crema {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#macchiatto:checked ~ .coffee-info .recipe-crema:before {
+  content: "9ml";
+}
+#macchiatto:checked ~ .coffee-info .ingredient-foam, #macchiatto:checked ~ .coffee-info .recipe-foam {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.5);
+}
+#macchiatto:checked ~ .coffee-info .recipe-foam {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#macchiatto:checked ~ .coffee-info .recipe-foam:before {
+  content: "15ml";
+}
+
+#cortado:checked ~ .coffee-title label[for="cortado"] {
+  -webkit-animation: none;
+          animation: none;
+  opacity: 1;
+}
+#cortado:checked ~ .coffee-title label[for="cortado"] p {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+#cortado:checked ~ .coffee-title label[for="cortado"] span:after {
+  -webkit-animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+#cortado:checked ~ .coffee-info .coffee-cup {
+  -webkit-animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#cortado:checked ~ .coffee-info .coffee-ingredients {
+  -webkit-animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  opacity: 1;
+}
+#cortado:checked ~ .coffee-info .ingredient-espresso, #cortado:checked ~ .coffee-info .recipe-espresso {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#cortado:checked ~ .coffee-info .recipe-espresso {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#cortado:checked ~ .coffee-info .recipe-espresso:before {
+  content: "60ml";
+}
+#cortado:checked ~ .coffee-info .ingredient-crema, #cortado:checked ~ .coffee-info .recipe-crema {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.3);
+}
+#cortado:checked ~ .coffee-info .recipe-crema {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#cortado:checked ~ .coffee-info .recipe-crema:before {
+  content: "9ml";
+}
+#cortado:checked ~ .coffee-info .ingredient-foam, #cortado:checked ~ .coffee-info .recipe-foam {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 1);
+}
+#cortado:checked ~ .coffee-info .recipe-foam {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#cortado:checked ~ .coffee-info .recipe-foam:before {
+  content: "30ml";
+}
+
+#cappuccino:checked ~ .coffee-title label[for="cappuccino"] {
+  -webkit-animation: none;
+          animation: none;
+  opacity: 1;
+}
+#cappuccino:checked ~ .coffee-title label[for="cappuccino"] p {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+#cappuccino:checked ~ .coffee-title label[for="cappuccino"] span:after {
+  -webkit-animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+#cappuccino:checked ~ .coffee-info .coffee-cup {
+  -webkit-animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#cappuccino:checked ~ .coffee-info .coffee-ingredients {
+  -webkit-animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  opacity: 1;
+}
+#cappuccino:checked ~ .coffee-info .ingredient-espresso, #cappuccino:checked ~ .coffee-info .recipe-espresso {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#cappuccino:checked ~ .coffee-info .recipe-espresso {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#cappuccino:checked ~ .coffee-info .recipe-espresso:before {
+  content: "60ml";
+}
+#cappuccino:checked ~ .coffee-info .ingredient-crema, #cappuccino:checked ~ .coffee-info .recipe-crema {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.3);
+}
+#cappuccino:checked ~ .coffee-info .recipe-crema {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#cappuccino:checked ~ .coffee-info .recipe-crema:before {
+  content: "9ml";
+}
+#cappuccino:checked ~ .coffee-info .ingredient-foam, #cappuccino:checked ~ .coffee-info .recipe-foam {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#cappuccino:checked ~ .coffee-info .recipe-foam {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#cappuccino:checked ~ .coffee-info .recipe-foam:before {
+  content: "60ml";
+}
+#cappuccino:checked ~ .coffee-info .ingredient-steam, #cappuccino:checked ~ .coffee-info .recipe-steam {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#cappuccino:checked ~ .coffee-info .recipe-steam {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#cappuccino:checked ~ .coffee-info .recipe-steam:before {
+  content: "60ml";
+}
+
+#americano:checked ~ .coffee-title label[for="americano"] {
+  -webkit-animation: none;
+          animation: none;
+  opacity: 1;
+}
+#americano:checked ~ .coffee-title label[for="americano"] p {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+#americano:checked ~ .coffee-title label[for="americano"] span:after {
+  -webkit-animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+#americano:checked ~ .coffee-info .coffee-cup {
+  -webkit-animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#americano:checked ~ .coffee-info .coffee-ingredients {
+  -webkit-animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  opacity: 1;
+}
+#americano:checked ~ .coffee-info .ingredient-espresso, #americano:checked ~ .coffee-info .recipe-espresso {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#americano:checked ~ .coffee-info .recipe-espresso {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#americano:checked ~ .coffee-info .recipe-espresso:before {
+  content: "60ml";
+}
+#americano:checked ~ .coffee-info .ingredient-crema, #americano:checked ~ .coffee-info .recipe-crema {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.3);
+}
+#americano:checked ~ .coffee-info .recipe-crema {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#americano:checked ~ .coffee-info .recipe-crema:before {
+  content: "9ml";
+}
+#americano:checked ~ .coffee-info .ingredient-water, #americano:checked ~ .coffee-info .recipe-water {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 3);
+}
+#americano:checked ~ .coffee-info .recipe-water {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#americano:checked ~ .coffee-info .recipe-water:before {
+  content: "90ml";
+}
+
+#mocha:checked ~ .coffee-title label[for="mocha"] {
+  -webkit-animation: none;
+          animation: none;
+  opacity: 1;
+}
+#mocha:checked ~ .coffee-title label[for="mocha"] p {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+#mocha:checked ~ .coffee-title label[for="mocha"] span:after {
+  -webkit-animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+#mocha:checked ~ .coffee-info .coffee-cup {
+  -webkit-animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#mocha:checked ~ .coffee-info .coffee-ingredients {
+  -webkit-animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  opacity: 1;
+}
+#mocha:checked ~ .coffee-info .ingredient-espresso, #mocha:checked ~ .coffee-info .recipe-espresso {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#mocha:checked ~ .coffee-info .recipe-espresso {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#mocha:checked ~ .coffee-info .recipe-espresso:before {
+  content: "60ml";
+}
+#mocha:checked ~ .coffee-info .ingredient-crema, #mocha:checked ~ .coffee-info .recipe-crema {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.3);
+}
+#mocha:checked ~ .coffee-info .recipe-crema {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#mocha:checked ~ .coffee-info .recipe-crema:before {
+  content: "9ml";
+}
+#mocha:checked ~ .coffee-info .ingredient-chocolate, #mocha:checked ~ .coffee-info .recipe-chocolate {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#mocha:checked ~ .coffee-info .recipe-chocolate {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#mocha:checked ~ .coffee-info .recipe-chocolate:before {
+  content: "60ml";
+}
+#mocha:checked ~ .coffee-info .ingredient-steam, #mocha:checked ~ .coffee-info .recipe-steam {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 1);
+}
+#mocha:checked ~ .coffee-info .recipe-steam {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#mocha:checked ~ .coffee-info .recipe-steam:before {
+  content: "30ml";
+}
+
+#latte:checked ~ .coffee-title label[for="latte"] {
+  -webkit-animation: none;
+          animation: none;
+  opacity: 1;
+}
+#latte:checked ~ .coffee-title label[for="latte"] p {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+#latte:checked ~ .coffee-title label[for="latte"] span:after {
+  -webkit-animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+#latte:checked ~ .coffee-info .coffee-cup {
+  -webkit-animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#latte:checked ~ .coffee-info .coffee-ingredients {
+  -webkit-animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  opacity: 1;
+}
+#latte:checked ~ .coffee-info .ingredient-espresso, #latte:checked ~ .coffee-info .recipe-espresso {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#latte:checked ~ .coffee-info .recipe-espresso {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#latte:checked ~ .coffee-info .recipe-espresso:before {
+  content: "60ml";
+}
+#latte:checked ~ .coffee-info .ingredient-crema, #latte:checked ~ .coffee-info .recipe-crema {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.3);
+}
+#latte:checked ~ .coffee-info .recipe-crema {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#latte:checked ~ .coffee-info .recipe-crema:before {
+  content: "9ml";
+}
+#latte:checked ~ .coffee-info .ingredient-steam, #latte:checked ~ .coffee-info .recipe-steam {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 3);
+}
+#latte:checked ~ .coffee-info .recipe-steam {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#latte:checked ~ .coffee-info .recipe-steam:before {
+  content: "90ml";
+}
+#latte:checked ~ .coffee-info .ingredient-foam, #latte:checked ~ .coffee-info .recipe-foam {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.1);
+}
+#latte:checked ~ .coffee-info .recipe-foam {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#latte:checked ~ .coffee-info .recipe-foam:before {
+  content: "3ml";
+}
+
+#breve:checked ~ .coffee-title label[for="breve"] {
+  -webkit-animation: none;
+          animation: none;
+  opacity: 1;
+}
+#breve:checked ~ .coffee-title label[for="breve"] p {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+#breve:checked ~ .coffee-title label[for="breve"] span:after {
+  -webkit-animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+#breve:checked ~ .coffee-info .coffee-cup {
+  -webkit-animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#breve:checked ~ .coffee-info .coffee-ingredients {
+  -webkit-animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  opacity: 1;
+}
+#breve:checked ~ .coffee-info .ingredient-espresso, #breve:checked ~ .coffee-info .recipe-espresso {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#breve:checked ~ .coffee-info .recipe-espresso {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#breve:checked ~ .coffee-info .recipe-espresso:before {
+  content: "60ml";
+}
+#breve:checked ~ .coffee-info .ingredient-crema, #breve:checked ~ .coffee-info .recipe-crema {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.3);
+}
+#breve:checked ~ .coffee-info .recipe-crema {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#breve:checked ~ .coffee-info .recipe-crema:before {
+  content: "9ml";
+}
+#breve:checked ~ .coffee-info .ingredient-half, #breve:checked ~ .coffee-info .recipe-half {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 3);
+}
+#breve:checked ~ .coffee-info .recipe-half {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#breve:checked ~ .coffee-info .recipe-half:before {
+  content: "90ml";
+}
+
+#mochabreve:checked ~ .coffee-title label[for="mochabreve"] {
+  -webkit-animation: none;
+          animation: none;
+  opacity: 1;
+}
+#mochabreve:checked ~ .coffee-title label[for="mochabreve"] p {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+#mochabreve:checked ~ .coffee-title label[for="mochabreve"] span:after {
+  -webkit-animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+#mochabreve:checked ~ .coffee-info .coffee-cup {
+  -webkit-animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#mochabreve:checked ~ .coffee-info .coffee-ingredients {
+  -webkit-animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  opacity: 1;
+}
+#mochabreve:checked ~ .coffee-info .ingredient-espresso, #mochabreve:checked ~ .coffee-info .recipe-espresso {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#mochabreve:checked ~ .coffee-info .recipe-espresso {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#mochabreve:checked ~ .coffee-info .recipe-espresso:before {
+  content: "60ml";
+}
+#mochabreve:checked ~ .coffee-info .ingredient-crema, #mochabreve:checked ~ .coffee-info .recipe-crema {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.3);
+}
+#mochabreve:checked ~ .coffee-info .recipe-crema {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#mochabreve:checked ~ .coffee-info .recipe-crema:before {
+  content: "9ml";
+}
+#mochabreve:checked ~ .coffee-info .ingredient-half, #mochabreve:checked ~ .coffee-info .recipe-half {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#mochabreve:checked ~ .coffee-info .recipe-half {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#mochabreve:checked ~ .coffee-info .recipe-half:before {
+  content: "60ml";
+}
+#mochabreve:checked ~ .coffee-info .ingredient-chocolate, #mochabreve:checked ~ .coffee-info .recipe-chocolate {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#mochabreve:checked ~ .coffee-info .recipe-chocolate {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#mochabreve:checked ~ .coffee-info .recipe-chocolate:before {
+  content: "60ml";
+}
+
+#flatwhite:checked ~ .coffee-title label[for="flatwhite"] {
+  -webkit-animation: none;
+          animation: none;
+  opacity: 1;
+}
+#flatwhite:checked ~ .coffee-title label[for="flatwhite"] p {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+#flatwhite:checked ~ .coffee-title label[for="flatwhite"] span:after {
+  -webkit-animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+#flatwhite:checked ~ .coffee-info .coffee-cup {
+  -webkit-animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#flatwhite:checked ~ .coffee-info .coffee-ingredients {
+  -webkit-animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  opacity: 1;
+}
+#flatwhite:checked ~ .coffee-info .ingredient-espresso, #flatwhite:checked ~ .coffee-info .recipe-espresso {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#flatwhite:checked ~ .coffee-info .recipe-espresso {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#flatwhite:checked ~ .coffee-info .recipe-espresso:before {
+  content: "60ml";
+}
+#flatwhite:checked ~ .coffee-info .ingredient-crema, #flatwhite:checked ~ .coffee-info .recipe-crema {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.3);
+}
+#flatwhite:checked ~ .coffee-info .recipe-crema {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#flatwhite:checked ~ .coffee-info .recipe-crema:before {
+  content: "9ml";
+}
+#flatwhite:checked ~ .coffee-info .ingredient-steam, #flatwhite:checked ~ .coffee-info .recipe-steam {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 4);
+}
+#flatwhite:checked ~ .coffee-info .recipe-steam {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#flatwhite:checked ~ .coffee-info .recipe-steam:before {
+  content: "120ml";
+}
+
+#bombon:checked ~ .coffee-title label[for="bombon"] {
+  -webkit-animation: none;
+          animation: none;
+  opacity: 1;
+}
+#bombon:checked ~ .coffee-title label[for="bombon"] p {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+#bombon:checked ~ .coffee-title label[for="bombon"] span:after {
+  -webkit-animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+          animation: coffee-rule-active 1s 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+}
+#bombon:checked ~ .coffee-info .coffee-cup {
+  -webkit-animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: cup-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+#bombon:checked ~ .coffee-info .coffee-ingredients {
+  -webkit-animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+          animation: ingredients-active 2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  opacity: 1;
+}
+#bombon:checked ~ .coffee-info .ingredient-condensed, #bombon:checked ~ .coffee-info .recipe-condensed {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#bombon:checked ~ .coffee-info .recipe-condensed {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#bombon:checked ~ .coffee-info .recipe-condensed:before {
+  content: "60ml";
+}
+#bombon:checked ~ .coffee-info .ingredient-espresso, #bombon:checked ~ .coffee-info .recipe-espresso {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 2);
+}
+#bombon:checked ~ .coffee-info .recipe-espresso {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#bombon:checked ~ .coffee-info .recipe-espresso:before {
+  content: "60ml";
+}
+#bombon:checked ~ .coffee-info .ingredient-crema, #bombon:checked ~ .coffee-info .recipe-crema {
+  display: block;
+  height: calc(1/6.3 * (200px - 2rem) * 0.3);
+}
+#bombon:checked ~ .coffee-info .recipe-crema {
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  opacity: 1;
+}
+#bombon:checked ~ .coffee-info .recipe-crema:before {
+  content: "9ml";
+}
+
+.coffee-steam {
+  position: absolute;
+  height: 10rem;
+  width: 100%;
+  bottom: 100%;
+  left: 0;
+}
+
+.steam {
+  width: 1rem;
+  height: 1rem;
+  color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  bottom: 0;
+  -webkit-animation: steam-active 3s ease-out infinite;
+          animation: steam-active 3s ease-out infinite;
+  -webkit-filter: blur(0.5rem);
+          filter: blur(0.5rem);
+}
+.steam:nth-child(1n) {
+  left: calc(50% - -1.5rem);
+}
+.steam:nth-child(2n) {
+  left: calc(50% - 0rem);
+}
+.steam:nth-child(3n) {
+  left: calc(50% - 1.5rem);
+}
+.steam:before {
+  content: "~";
+  -webkit-transform: rotate(90deg) scaleX(15) scaleY(10);
+          transform: rotate(90deg) scaleX(15) scaleY(10);
+  display: block;
+}
+.steam.large {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+.steam.large:before {
+  -webkit-transform: rotate(90deg) scaleX(20) scaleY(15);
+          transform: rotate(90deg) scaleX(20) scaleY(15);
+}
+
+form {
+  height: 100%;
+  width: 100%;
+}
+
+@-webkit-keyframes steam-active {
+  0% {
+    -webkit-transform: translateY(1rem);
+            transform: translateY(1rem);
+    opacity: 0;
+  }
+  16% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-5rem);
+            transform: translateY(-5rem);
+    opacity: 0;
+  }
+}
+
+@keyframes steam-active {
+  0% {
+    -webkit-transform: translateY(1rem);
+            transform: translateY(1rem);
+    opacity: 0;
+  }
+  16% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-5rem);
+            transform: translateY(-5rem);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes coffee-type-inactive {
+  0% {
+    height: 3rem;
+  }
+  50% {
+    height: 3rem;
+  }
+  100% {
+    height: 0;
+  }
+}
+@keyframes coffee-type-inactive {
+  0% {
+    height: 3rem;
+  }
+  50% {
+    height: 3rem;
+  }
+  100% {
+    height: 0;
+  }
+}
+@-webkit-keyframes coffee-type-active {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 3rem;
+  }
+  100% {
+    height: 3rem;
+  }
+}
+@keyframes coffee-type-active {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 3rem;
+  }
+  100% {
+    height: 3rem;
+  }
+}
+@-webkit-keyframes coffee-rule-active {
+  50% {
+    opacity: 0;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+@keyframes coffee-rule-active {
+  50% {
+    opacity: 0;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+@-webkit-keyframes cup-active {
+  0% {
+    -webkit-transform: translateX(-400px);
+            transform: translateX(-400px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@keyframes cup-active {
+  0% {
+    -webkit-transform: translateX(-400px);
+            transform: translateX(-400px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes cup-inactive {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(400px);
+            transform: translateX(400px);
+  }
+}
+@keyframes cup-inactive {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(400px);
+            transform: translateX(400px);
+  }
+}
+@-webkit-keyframes coffee-labels-active {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes coffee-labels-active {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.coffee-controls {
+  -webkit-transition: all 0.5s 0 cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.5s 0 cubic-bezier(0.645, 0.045, 0.355, 1);
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  opacity: 0;
+}
+
+[type="reset"] {
+  -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+  display: block;
+  position: relative;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  color: white;
+  border: 1px solid currentColor;
+  padding: 1rem 2rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0;
+}
+[type="reset"]:hover {
+  color: #3b3b3b;
+  background: white;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  position: relative;
+}
+
+input[type="radio"] {
+  height: 0;
+  visibility: hidden;
+}
+
+html, body {
+  font-family: Lato, sans-serif;
+  font-weight: 300;
+  line-height: 1;
+  background-color: #515866;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+aside, main {
+  width: 50%;
+  height: 816px;
+  float: left;
+  padding: 0 2rem;
+  margin: 2rem 0;
+}
+
+.meta {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 1.2rem;
+}
+.meta p, .meta a {
+  color: rgba(255, 255, 255, 0.5);
+}
+.meta h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 300;
+  color: white;
+}
+.meta p {
+  line-height: 1.4;
+}
+.meta a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.device {
+  position: absolute;
+  right: 2rem;
+  height: 816px;
+  width: 396px;
+  padding: 90px 10px;
+  border: 5px solid white;
+  border-radius: 60px;
+  background-color: #dcdfe6;
+  box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.1);
+}
+.device, .device * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.device:before, .device:after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+}
+.device:before {
+  width: 20%;
+  height: 10px;
+  top: 40px;
+  left: 40%;
+  border-radius: 10px;
+  background-color: #a1a5b3;
+}
+.device:after {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid 5px #bdc0ca;
+  left: calc(50% - 25px);
+  bottom: 15px;
+}
+.device header {
+  height: 3rem;
+  background-color: #e34a36;
+}
+.device header h1 {
+  margin: 0;
+  line-height: 3rem;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: white;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.device section {
+  height: calc(100% - 3rem);
+  width: 100%;
+  overflow: hidden;
+  background-color: #3b3b3b;
+}
