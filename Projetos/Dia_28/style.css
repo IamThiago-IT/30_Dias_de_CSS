@@ -1589,13 +1589,13 @@ aside, main {
 
 .device {
   position: absolute;
-  right: 2rem;
+  right: -10rem;
   height: 816px;
   width: 396px;
   padding: 90px 10px;
-  border: 5px solid white;
+  border: 5px solid gray;
   border-radius: 60px;
-  background-color: #dcdfe6;
+  background-color: #000;
   box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.1);
 }
 .device, .device * {
