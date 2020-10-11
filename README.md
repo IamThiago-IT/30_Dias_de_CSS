@@ -43,8 +43,8 @@ Improve my CSS3 skills by carrying out projects
 - [DAY 23 - Botões de Redes social com Tooltip](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_23)
 - [DAY 24 - Progress](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_24)
 - [DAY 25 - Progress etapas](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_25)
-- DAY 26
-- DAY 27
-- DAY 28
-- DAY 29
-- DAY 30
+- [DAY 26 - Olho Animado](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_26)
+- [DAY 27 - Classificação por Estrelas](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_27)
+- [DAY 28 - Café App ☕ ](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_28)
+- [DAY 29 - Tela Inicial](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_29)
+- [DAY 30 - Portfólio](https://github.com/IamThiago-IT/30_Dias_de_CSS/tree/master/Projetos/Dia_30)
